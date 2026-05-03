@@ -1,0 +1,19 @@
+{
+  "name": "picture-quiz",
+  "version": "1.0.0",
+  "description": "Online game with picture riddles and advertisements",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8080"
+  },
+  "keywords": [
+    "game",
+    "quiz",
+    "riddles",
+    "pictures",
+    "javascript"
+  ],
+  "author": "TmMik",
+  "license": "MIT"
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Quiz - Загадки с картинками</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header class="header">
+            <h1>🖼️ Picture Quiz</h1>
+            <div class="header-info">
+                <div class="score">Очки: <span id="score">0</span></div>
+                <div class="level">Уровень: <span id="level">1</span></div>
+            </div>
+        </header>
+
+        <!-- Реклама вверху -->
+        <div class="ad-container ad-top">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="1234567890"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- Главная игровая площадка -->
+        <main class="game-area">
+            <!-- Экран меню -->
+            <div id="menuScreen" class="screen active">
+                <div class="menu-content">
+                    <h2>Добро пожаловать!</h2>
+                    <p>Угадывай предметы по картинкам</p>
+                    <button class="btn btn-primary" onclick="game.startGame()">Начать игру</button>
+                    <button class="btn btn-secondary" onclick="game.showSettings()">Настройки</button>
+                </div>
+            </div>
+
+            <!-- Экран игры -->
+            <div id="gameScreen" class="screen">
+                <div class="game-content">
+                    <!-- Картинка загадки -->
+                    <div class="riddle-image">
+                        <img id="riddleImage" src="" alt="Загадка">
+                    </div>
+
+                    <!-- Подсказка -->
+                    <div class="hint-section">
+                        <p id="hint" class="hint-text"></p>
+                        <button class="btn-hint" onclick="game.showHint()">💡 Подсказка (-10 очков)</button>
+                    </div>
+
+                    <!-- Ввод ответа -->
+                    <div class="answer-section">
+                        <input 
+                            type="text" 
+                            id="answerInput" 
+                            placeholder="Введите ответ..."
+                            onkeypress="if(event.key === 'Enter') game.checkAnswer()"
+                        >
+                        <button class="btn btn-check" onclick="game.checkAnswer()">Проверить</button>
+                    </div>
+
+                    <!-- Кнопка пропуска -->
+                    <button class="btn btn-skip" onclick="game.skipRiddle()">Пропустить</button>
+                </div>
+            </div>
+
+            <!-- Экран результата -->
+            <div id="resultScreen" class="screen">
+                <div class="result-content">
+                    <div id="resultMessage" class="result-message"></div>
+                    <div class="result-stats">
+                        <p>Очки: <strong id="finalScore">0</strong></p>
+                        <p>Уровень: <strong id="finalLevel">1</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="game.startGame()">Играть снова</button>
+                    <button class="btn btn-secondary" onclick="game.backToMenu()">В меню</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Реклама внизу -->
+        <div class="ad-container ad-bottom">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="0987654321"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/riddles.js"></script>
+    <script src="js/game.js"></script>
+    <script>
+        // Инициализация AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

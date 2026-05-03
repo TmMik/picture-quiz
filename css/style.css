@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Шапка */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.2em;
+}
+
+.score, .level {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.score span, .level span {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Реклама */
+.ad-container {
+    padding: 15px;
+    background: #f5f5f5;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-top {
+    border-bottom: 1px solid #ddd;
+}
+
+.ad-bottom {
+    border-top: 1px solid #ddd;
+}
+
+/* Игровая площадка */
+.game-area {
+    padding: 40px 20px;
+    min-height: 500px;
+    position: relative;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Меню */
+.menu-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.menu-content h2 {
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.menu-content p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Игра */
+.game-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.riddle-image {
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f0f0f0;
+    padding: 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.riddle-image img {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.hint-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.hint-text {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 12px;
+    font-style: italic;
+    min-height: 30px;
+}
+
+.btn-hint {
+    background: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-hint:hover {
+    background: #ffb300;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-hint:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+    color: #999;
+}
+
+.answer-section {
+    display: flex;
+    gap: 10px;
+}
+
+#answerInput {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease;
+}
+
+#answerInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+.btn-check {
+    background: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    flex: 0.3;
+}
+
+.btn-check:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-skip {
+    background: #ff6b6b;
+    color: white;
+    width: 100%;
+    padding: 12px;
+}
+
+.btn-skip:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+/* Результаты */
+.result-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.result-message {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    min-height: 50px;
+}
+
+.result-message.correct {
+    color: #4caf50;
+}
+
+.result-message.incorrect {
+    color: #f44336;
+}
+
+.result-stats {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.result-stats p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #555;
+}
+
+.result-stats strong {
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .riddle-image {
+        min-height: 250px;
+    }
+
+    .riddle-image img {
+        max-height: 280px;
+    }
+
+    .answer-section {
+        flex-direction: column;
+    }
+
+    .btn-check {
+        flex: 1;
+    }
+
+    .game-area {
+        padding: 20px 15px;
+    }
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.pulse {
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
